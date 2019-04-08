@@ -18,8 +18,8 @@ public class StepsDefinitionPHPtravel {
         ssiService.setCredentials();
     }
 
-//    @And("^click 'Registrar Maquinaria' tab in 'Header' page$")
-//    public void clickRegistrarMaquinariaTabInHeaderPage() throws Throwable {
-//        ssiService.clickRegistrarMaquinariTab();
-//    }
+    @And("^click 'Registrar Maquinaria' tab in 'Header' page$")
+    public void clickRegistrarMaquinariaTabInHeaderPage() throws Throwable {
+        ssiService.clickRegistrarMaquinariTab();
+    }
 }

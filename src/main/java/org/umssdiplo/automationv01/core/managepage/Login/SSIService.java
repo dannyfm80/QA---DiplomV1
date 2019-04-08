@@ -16,7 +16,7 @@ public class SSIService extends BasePage {
     @FindBy(css = ".btn-primary.btn-block")
     private WebElement loginBtn;
 
-    @FindBy(id = "qa-test-lightbox-login")
+    @FindBy(id = "press")
     private WebElement registrarMaquinariaTab;
 
     public void setCredentials() {
@@ -31,4 +31,8 @@ public class SSIService extends BasePage {
 //        CommonEvents.clickButton(registrarMaquinariaTab);
 //        return new RegistrarMarquinaria();
 //    }
+
+    public void clickRegistrarMaquinariTab() {
+        CommonEvents.clickButton(registrarMaquinariaTab);
+    }
 }
