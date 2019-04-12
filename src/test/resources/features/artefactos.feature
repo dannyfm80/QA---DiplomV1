@@ -1,5 +1,5 @@
 Feature: Funcionalidad de Artefactos
 
   Scenario: Registro de artefactos
-    Given 'SisSecurity' page is loaded
+    Given 'SIS' page is create
     And

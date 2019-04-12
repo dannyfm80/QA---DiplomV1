@@ -11,25 +11,29 @@ public class PropertyAccessor {
     private static final String USER_NAME = "username";
     private static final String PASSWORD = "password";
     //    ***************************
-    private static final String BASE_URLL = "baseurll";
+    private static final String BASE_URL2 = "baseurl2";
+    //***********************************************
+    private static final String NOMBRE = "nombre";
+    private static final String MODELO = "modelo";
+    private static final String ESTADO = "estado";
+    private static final String CANTIDAD = "cantidad";
 
     private static PropertyAccessor PropertyAccessor;
     private Properties properties;
 
-    private PropertyAccessor(){
-        try(FileInputStream fileInputStream = new FileInputStream("gradle.properties")) {
+    private PropertyAccessor() {
+        try (FileInputStream fileInputStream = new FileInputStream("gradle.properties")) {
             properties = new Properties();
             properties.load(fileInputStream);
-        }catch (FileNotFoundException fe){
+        } catch (FileNotFoundException fe) {
             throw new RuntimeException(fe);
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static PropertyAccessor getInstance(){
-        if(PropertyAccessor == null){
+    public static PropertyAccessor getInstance() {
+        if (PropertyAccessor == null) {
             PropertyAccessor = new PropertyAccessor();
         }
         return PropertyAccessor;
@@ -59,6 +63,10 @@ public class PropertyAccessor {
         return getDataProperty(BASE_URL);
     }
 
+    public String getBaseUrl2() {
+        return getDataProperty(BASE_URL2);
+    }
+
     public String getUser() {
         return getDataProperty(USER_NAME);
     }
@@ -66,4 +74,25 @@ public class PropertyAccessor {
     public String getPassword() {
         return getDataProperty(PASSWORD);
     }
+
+    //        public String getPassword() {
+//        return getDataProperty(PASSWORD);
+//    }
+    public String getNombre() {
+        return getDataProperty(NOMBRE);
+    }
+
+    public String getModelo() {
+        return getDataProperty(MODELO);
+    }
+
+    public String getEstado() {
+        return getDataProperty(ESTADO);
+    }
+
+    public String getCantidad() {
+        return getDataProperty(CANTIDAD);
+    }
+
+
 }

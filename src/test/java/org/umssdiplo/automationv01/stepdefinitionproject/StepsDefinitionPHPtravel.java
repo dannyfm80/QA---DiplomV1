@@ -12,14 +12,47 @@ public class StepsDefinitionPHPtravel {
     public void phpTravelPageIsLoaded() throws Throwable {
         ssiService = LoadPage.loginPage();
     }
-
     @And("^set my credentials on 'Login' page$")
     public void setMyCredentialsOnLoginPage() throws Throwable {
         ssiService.setCredentials();
     }
 
-    @And("^click 'Registrar Maquinaria' tab in 'Header' page$")
-    public void clickRegistrarMaquinariaTabInHeaderPage() throws Throwable {
-        ssiService.clickRegistrarMaquinariTab();
+    //--------------------------Ver detalle del artefacto ---------------------------------------
+
+    @Given("^'SisSecurity' page inventario is loaded$")
+    public void sissecurityPageInventarioIsLoaded() {
+        ssiService = LoadPage.loginPage();
     }
+
+    @And("^choose option one click 'Ver detalles' on page inventario$")
+    public void chooseOptionOneClickVerDetallesOnPageInventario() {
+        ssiService.clickVerArtefacto();
+    }
+
+    // ----------------------------Eliminar artefacto  ----------------------------------------------
+    @Given("^'SisSecurity' page Inventario es ta cargado$")
+    public void sissecurityPageInventarioEsTaCargado() {
+        ssiService = LoadPage.loginPage();
+    }
+
+    @And("^choose option one click 'Dar de baja' on page inventario$")
+    public void chooseOptionOneClickDarDeBajaOnPageInventario() {
+        ssiService.clickEliminar();
+    }
+
+    //---------------------------------Create Artefacto-------------------------------------------------
+    @Given("^crear artefacto$")
+    public void crearArtefacto() {
+        ssiService = LoadPage.loginPage2();
+    }
+
+    @And("^agregar artefacto \"([^\"]*)\" and \"([^\"]*)\" and \"([^\"]*)\" and (\\d+) on page formulario$")
+    public void agregarArtefactoAndAndAndCantidadOnPageFormulario(String nombre, String modelo, String estado, int cantidad) throws Throwable {
+        ssiService.create(nombre, modelo, estado, cantidad);
+    }
+
+    //****************************************************************************************************
+
+
+
 }
